@@ -108,9 +108,10 @@ var m,n,o;
     var o = variable.lastIndexOf(" ", n);
     }
     var wordlength = m-o;
-    var substring = variable.substr(o,wordlength);
+    var wordlength2 = wordlength-2;
+    var substring = variable.substr(o,wordlength2);
     
-    var finalstring = substring.concat("? I barely know her!")
+    var finalstring = substring.concat(" her? I barely know her!")
 	
         botResponse = finalstring;
 
