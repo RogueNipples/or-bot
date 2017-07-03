@@ -65,7 +65,7 @@ var m,n,o;
 	var wordlength2 = wordlength-2;
     var substring = variable.substr(o,wordlength2);
     
-    var finalstring = substring.concat(" her? I barely know her!")
+    var finalstring = substring.concat("er? I barely know her!")
 	
         botResponse = finalstring;
 
@@ -123,7 +123,7 @@ var m,n,o;
     var wordlength2 = wordlength-2;
     var substring = variable.substr(o,wordlength2);
     
-    var finalstring = substring.concat(" her? I barely know her!")
+    var finalstring = substring.concat("er? I barely know her!")
 	
         botResponse = finalstring;
 
