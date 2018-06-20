@@ -7,16 +7,32 @@ function respond() {
   var request = JSON.parse(this.req.chunks[0]);
   var botRegexE = /\b\S{4,}er\b/;
   var botRegexO = /\b\S{4,}or\b/;
+	
+    var midWordIndex = request.text.indexOf("er ");
+    if (request.text.indexOf(" ", midWordIndex) == -1)
+    {
+	var endOfWordIndex = request.text.length;
+    }
+    else
+    {
+	var endOfWordIndex = request.text.indexOf(" ", midWordIndex);
+    }
+    if (request.text.lastIndexOf(" ", midWordIndex) == -1)
+    {
+	var startOfWordIndex = 0;
+    }
+    else
+    {
+	var startOfWordIndex = request.text.lastIndexOf(" ", midWordIndex);
+    }
+    var wordLength = endOfWordIndex-startOfWordIndex;
+    var substring = variable.substr(startOfWordIndex,wordLength);
+	
   if(request.name != "W U O l l O N") {
   
-  if(request.text && botRegexE.test(request.text)) {
+  if(botRegexO.text(request.text) || botRegexE.test(request.text)) {
     this.res.writeHead(200);
-    postMessage(request.text, "er");
-    this.res.end();
-  }
-  if(request.text && botRegexO.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage(request.text, "or");
+    postMessage(request.text, substring);
     this.res.end();
   }
   else {
@@ -29,36 +45,10 @@ function respond() {
 
 //==========================================================================================
 
-function postMessage(variable, ending) {
+function postMessage(variable, theWord) {
   var botResponse, options, body, botReq;
   
-var m,n,o;	
-	
-    var n = variable.indexOf("er ");
-    if (variable.indexOf(" ", n) == -1) {
-    m = variable.length;
-    }
-    else {
-    var m = variable.indexOf(" ", n);
-    }
-    if (variable.lastIndexOf(" ", n) == -1) {
-    o = 0;
-    }
-    else {
-    var o = variable.lastIndexOf(" ", n);
-    }
-    var wordlength = m-o;
-	var wordlength2 = wordlength-2;
-    var substring = variable.substr(o,wordlength2);
-    if (ending == "er")
-    {
-    	var finalstring = substring.concat("er? I barely know her!")
-    }
-    else if (ending == "or")
-    {
-    	var finalstring = substring.concat("or? I barely know her!")
-    }
-    
+    	var finalstring = substring.concat("? I barely know her!") 
 	
         botResponse = finalstring;
 
