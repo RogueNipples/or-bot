@@ -5,12 +5,18 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
-  var botRegex = /\b[A-z]{4,}[e,o]r\b/;
-  if(request.name != "Bot 8") {
+  var botRegexE = /\b[A-z]{4,}er\b/;
+  var botRegexO = /\b[A-z]{4,}or\b/;
+  if(request.name != "W U O l l O N") {
   
-  if(request.text && botRegex.test(request.text)) {
+  if(request.text && botRegexE.test(request.text)) {
     this.res.writeHead(200);
-    postMessage(request.text);
+    postMessage(request.text, "er");
+    this.res.end();
+  }
+  if(request.text && botRegexO.test(request.text)) {
+    this.res.writeHead(200);
+    postMessage(request.text, "or");
     this.res.end();
   }
   else {
@@ -23,7 +29,7 @@ function respond() {
 
 //==========================================================================================
 
-function postMessage(variable) {
+function postMessage(variable, ending) {
   var botResponse, options, body, botReq;
   
 var m,n,o;	
@@ -44,8 +50,15 @@ var m,n,o;
     var wordlength = m-o;
 	var wordlength2 = wordlength-2;
     var substring = variable.substr(o,wordlength2);
+    if (ending == "er")
+    {
+    	var finalstring = substring.concat("er? I barely know her!")
+    }
+    else if (ending == "or")
+    {
+    	var finalstring = substring.concat("or? I barely know her!")
+    }
     
-    var finalstring = substring.concat("er? I barely know her!")
 	
         botResponse = finalstring;
 
