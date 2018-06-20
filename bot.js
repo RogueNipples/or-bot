@@ -5,13 +5,9 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
-  var botRegexER1 = /er\s/;
-  var botRegexER2 = /er$/;
-  var botRegexOR1 = /or\s/;
-  var botRegexOR2 = /or$/;
-  var x = Math.floor((Math.random() * 7) + 1);
-	
-  if(request.name != "Bot 8" && x > 6) {
+  var botRegexER1 = / [A-z]{4,}[e,o]r$;
+  var botRegexER2 = / [A-z]{4,}[e,o]r ;	
+  if(request.name != "Bot 8") {
   
   if(request.text && botRegexER1.test(request.text)) {
     this.res.writeHead(200);
@@ -21,16 +17,6 @@ function respond() {
   else if(request.text && botRegexER2.test(request.text)) {
     this.res.writeHead(200);
     postMessage2(request.text);
-    this.res.end();
-  }
-  else if(request.text && botRegexOR1.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage3(request.text);
-    this.res.end();
-  }
-  else if(request.text && botRegexOR2.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage4(request.text);
     this.res.end();
   }
   else {
