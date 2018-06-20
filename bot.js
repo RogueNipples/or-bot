@@ -5,8 +5,8 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
-  var botRegexE = /\b[A-z]{4,}er\b/;
-  var botRegexO = /\b[A-z]{4,}or\b/;
+  var botRegexE = /\b\S{4,}er\b/;
+  var botRegexO = /\b\S{4,}or\b/;
   if(request.name != "W U O l l O N") {
   
   if(request.text && botRegexE.test(request.text)) {
