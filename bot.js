@@ -8,8 +8,10 @@ function respond() {
   var botRegexE = /\b\S{4,}er\b/;
   var botRegexO = /\b\S{4,}or\b/;
 var startOfWordIndex, midWordIndex, endOfWordIndex
-    if (botRegexE.test(request.text))
+    if (botRegexO.test(request.text) || botRegexE.test(request.text))
     {
+	    if (request.name != "W U O l l O N")
+	    {
 		{
 			midWordIndex = request.text.indexOf("er ");
 			if (midWordIndex== -1)
@@ -34,6 +36,7 @@ var startOfWordIndex, midWordIndex, endOfWordIndex
     		postMessage(substring);
     		this.res.end();
 		}
+	    }
     }
 }
 
