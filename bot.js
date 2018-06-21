@@ -17,13 +17,13 @@ function respond() {
     {
 	var endOfWordIndex = midWordIndex+2;
     }
-    if (request.text.lastIndexOf(" ", midWordIndex) == -1)
+    if (request.text.lastIndexOf(" ", request.text) == -1)
     {
 	var startOfWordIndex = 0;
     }
     else
     {
-	var startOfWordIndex = request.text.lastIndexOf(" ", midWordIndex);
+	var startOfWordIndex = request.text.lastIndexOf(" ", request.text);
     }
     var wordLength = endOfWordIndex-startOfWordIndex;
     var substring = request.text.substr(startOfWordIndex,wordLength);
