@@ -26,7 +26,7 @@ function respond() {
 	var startOfWordIndex = request.text.lastIndexOf(" ", midWordIndex);
     }
     var wordLength = endOfWordIndex-startOfWordIndex;
-    var substring = variable.substr(startOfWordIndex,wordLength);
+    var substring = request.text.substr(startOfWordIndex,wordLength);
 	
   if(request.name != "W U O l l O N") {
   
