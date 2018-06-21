@@ -9,13 +9,13 @@ function respond() {
   var botRegexO = /\b\S{4,}or\b/;
 	
     var midWordIndex = request.text.indexOf("er ");
-    if (request.text.indexOf(" ", midWordIndex) == -1)
+    if (midWordIndex== -1)
     {
 	var endOfWordIndex = request.text.length;
     }
     else
     {
-	var endOfWordIndex = request.text.indexOf(" ", midWordIndex);
+	var endOfWordIndex = midWordIndex+2;
     }
     if (request.text.lastIndexOf(" ", midWordIndex) == -1)
     {
