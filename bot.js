@@ -32,7 +32,9 @@ var startOfWordIndex, midWordIndex, endOfWordIndex
 		}
 		var wordLength = endOfWordIndex-startOfWordIndex;
 		var substring = request.text.substr(startOfWordIndex,wordLength);
-		postMessage(substring);
+		this.res.writeHead(200);
+    		postMessage(substring);
+    		this.res.end();
 		}
 	}
     }
