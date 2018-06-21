@@ -48,7 +48,7 @@ function respond() {
 function postMessage(variable, theWord) {
   var botResponse, options, body, botReq;
   
-    	var finalstring = substring.concat("? I barely know her!") 
+    	var finalstring = theWord.concat("? I barely know her!") 
 	
         botResponse = finalstring;
 
