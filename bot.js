@@ -7,32 +7,31 @@ function respond() {
   var request = JSON.parse(this.req.chunks[0]);
   var botRegexE = /\b\S{4,}er\b/;
   var botRegexO = /\b\S{4,}or\b/;
+var startOfWordIndex, midWordIndex, endOfWordIndex
     
     if (botRegexO.test(request.text) || botRegexE.test(request.text))
 	      if(request.name != "W U O l l O N") {
     {
-    var midWordIndex = request.text.indexOf("er ");
+    midWordIndex = request.text.indexOf("er ");
     if (midWordIndex== -1)
     {
-	var endOfWordIndex = request.text.length;
+	endOfWordIndex = request.text.length;
     }
     else
     {
-	var endOfWordIndex = midWordIndex+2;
+	endOfWordIndex = midWordIndex+2;
     }
     if (request.text.lastIndexOf(" ", request.text) == -1)
     {
-	var startOfWordIndex = 0;
+	startOfWordIndex = 0;
     }
     else
     {
-	var startOfWordIndex = request.text.lastIndexOf(" ", request.text);
+	startOfWordIndex = request.text.lastIndexOf(" ", request.text);
     }
     var wordLength = endOfWordIndex-startOfWordIndex;
     var substring = request.text.substr(startOfWordIndex,wordLength);
-    this.res.writeHead(200);
     postMessage(substring);
-    this.res.end();
   }
   }
 }
