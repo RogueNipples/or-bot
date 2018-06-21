@@ -7,7 +7,10 @@ function respond() {
   var request = JSON.parse(this.req.chunks[0]);
   var botRegexE = /\b\S{4,}er\b/;
   var botRegexO = /\b\S{4,}or\b/;
-	
+    
+    if (botRegexO.test(request.text) || botRegexE.test(request.text))
+	      if(request.name != "W U O l l O N") {
+    {
     var midWordIndex = request.text.indexOf("er ");
     if (midWordIndex== -1)
     {
@@ -27,17 +30,8 @@ function respond() {
     }
     var wordLength = endOfWordIndex-startOfWordIndex;
     var substring = request.text.substr(startOfWordIndex,wordLength);
-	
-  if(request.name != "W U O l l O N") {
-  
-  if(botRegexO.text(request.text) || botRegexE.test(request.text)) {
     this.res.writeHead(200);
     postMessage(substring);
-    this.res.end();
-  }
-  else {
-    console.log("don't care");
-    this.res.writeHead(200);
     this.res.end();
   }
   }
