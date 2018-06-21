@@ -8,32 +8,34 @@ function respond() {
   var botRegexE = /\b\S{4,}er\b/;
   var botRegexO = /\b\S{4,}or\b/;
 var startOfWordIndex, midWordIndex, endOfWordIndex
-    
     if (botRegexO.test(request.text) || botRegexE.test(request.text))
-	      if(request.name != "W U O l l O N") {
     {
-    midWordIndex = request.text.indexOf("er ");
-    if (midWordIndex== -1)
-    {
-	endOfWordIndex = request.text.length;
+	if(request.name != "W U O l l O N")
+	{
+		{
+			midWordIndex = request.text.indexOf("er ");
+			if (midWordIndex== -1)
+		{
+			endOfWordIndex = request.text.length;
+		}
+		else
+		{
+			endOfWordIndex = midWordIndex+2;
+		}
+		if (request.text.lastIndexOf(" ", request.text) == -1)
+		{
+			startOfWordIndex = 0;
+		}
+		else
+		{
+			startOfWordIndex = request.text.lastIndexOf(" ", request.text);
+		}
+		var wordLength = endOfWordIndex-startOfWordIndex;
+		var substring = request.text.substr(startOfWordIndex,wordLength);
+		postMessage(substring);
+		}
+	}
     }
-    else
-    {
-	endOfWordIndex = midWordIndex+2;
-    }
-    if (request.text.lastIndexOf(" ", request.text) == -1)
-    {
-	startOfWordIndex = 0;
-    }
-    else
-    {
-	startOfWordIndex = request.text.lastIndexOf(" ", request.text);
-    }
-    var wordLength = endOfWordIndex-startOfWordIndex;
-    var substring = request.text.substr(startOfWordIndex,wordLength);
-    postMessage(substring);
-  }
-  }
 }
 
 //==========================================================================================
@@ -41,8 +43,7 @@ var startOfWordIndex, midWordIndex, endOfWordIndex
 function postMessage(substring) {
   var botResponse, options, body, botReq;
 	
-        botResponse = substring
-	//.concat("? I barely know her!");
+        botResponse = substring.concat("? I barely know her!");
 
 
   options = {
