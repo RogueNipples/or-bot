@@ -8,7 +8,7 @@ function respond() {
   var botRegexE = /\b\S{4,}er\b/;
   var botRegexO = /\b\S{4,}or\b/;
 var startOfWordIndex, midWordIndex, endOfWordIndex
-    if (botRegexO.test(request.text) || botRegexE.test(request.text))
+    if (botRegexE.test(request.text))
     {
 		{
 			midWordIndex = request.text.indexOf("er ");
