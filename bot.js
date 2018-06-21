@@ -32,7 +32,7 @@ function respond() {
   
   if(botRegexO.text(request.text) || botRegexE.test(request.text)) {
     this.res.writeHead(200);
-    postMessage(request.text, substring);
+    postMessage(substring);
     this.res.end();
   }
   else {
@@ -45,12 +45,10 @@ function respond() {
 
 //==========================================================================================
 
-function postMessage(variable, theWord) {
+function postMessage(substring) {
   var botResponse, options, body, botReq;
-  
-    	var finalstring = theWord.concat("? I barely know her!") 
 	
-        botResponse = finalstring;
+        botResponse = substring.concat("? I barely know her!");
 
 
   options = {
