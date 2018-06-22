@@ -10,7 +10,7 @@ function respond() {
 var startOfWordIndex, midWordIndex, endOfWordIndex
     if (botRegexO.test(request.text) || botRegexE.test(request.text))
     {
-	    if (request.name != "W U O l l O N")
+	    if (request.name != "W U O | | O N")
 	    {
 		{
 			midWordIndex = request.text.indexOf("er ");
