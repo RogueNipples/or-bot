@@ -13,7 +13,7 @@ var startOfWordIndex, midWordIndex, endOfWordIndex
 	    if (request.name != "W U O | | O N")
 	    {
 		{
-			if (botregexO.test(request.text))
+			if (botRegexO.test(request.text))
 			{
 				midWordIndex = request.text.indexOf("or ");
 			}
