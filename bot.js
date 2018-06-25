@@ -29,7 +29,7 @@ var startOfWordIndex, midWordIndex, endOfWordIndex
 		{
 			endOfWordIndex = midWordIndex+2;
 		}
-		if (request.text.lastIndexOf(" ", request.text) == -1)
+		if (request.text.lastIndexOf(" ", midWordIndex) == -1)
 		{
 			startOfWordIndex = 0;
 		}
