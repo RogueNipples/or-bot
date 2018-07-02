@@ -12,37 +12,37 @@ var startOfWordIndex, midWordIndex, endOfWordIndex
     {
 	    if (request.name != "W U O | | O N")
 	    {
+		if (botRegexO.test(request.text))
 		{
-			if (botRegexO.test(request.text))
-			{
-				midWordIndex = request.text.indexOf("or ");
-			}
-			else
-			{
-				midWordIndex = request.text.indexOf("er ");
-			}
-			if (midWordIndex== -1)
+			midWordIndex = request.text.indexOf("or ");
+		}
+		else
+		{
+			midWordIndex = request.text.indexOf("er ");
+		}
+//-----------------------
+		if (midWordIndex== -1) //If the word is at the end of the string
 		{
 			endOfWordIndex = request.text.length;
 		}
-		else
+		else //If the word is in the middle or start of the string
 		{
 			endOfWordIndex = midWordIndex+2;
 		}
-		if (request.text.lastIndexOf(" ", midWordIndex) == -1)
+//----------------------
+		if (request.text.lastIndexOf(" ", midWordIndex) == -1) //If the word is at the start of the string
 		{
 			startOfWordIndex = 0;
 		}
-		else
+		else //If the word is at the end or middle of the string
 		{
-			startOfWordIndex = request.text.lastIndexOf(" ", request.text);
+			startOfWordIndex = request.text.lastIndexOf(" ", midWordIndex);
 		}
 		var wordLength = endOfWordIndex-startOfWordIndex;
 		var substring = request.text.substr(startOfWordIndex,wordLength);
 		this.res.writeHead(200);
     		postMessage(substring);
     		this.res.end();
-		}
 	    }
     }
 }
