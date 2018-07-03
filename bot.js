@@ -7,7 +7,7 @@ function respond() {
   var request = JSON.parse(this.req.chunks[0]);
   var botRegexE = /\b\S{4,}er\b/;
   var botRegexO = /\b\S{4,}or\b/;
-	var substring
+	var substring;
     if (botRegexO.test(request.text) || botRegexE.test(request.text))
     {
 	if (request.name != "W U O | | O N")
