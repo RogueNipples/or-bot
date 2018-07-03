@@ -32,7 +32,7 @@ function respond() {
 function postMessage(substring) {
   var botResponse, options, body, botReq;
 	
-        botResponse = substring.concat("? I barely know her!");
+        botResponse = substring[0].concat("? I barely know her!");
 
 
   options = {
