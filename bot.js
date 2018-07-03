@@ -12,32 +12,14 @@ var startOfWordIndex, midWordIndex, endOfWordIndex
     {
 	    if (request.name != "W U O | | O N")
 	    {
-		if (botRegexO.test(request.text))
-		{
-			midWordIndex = request.text.indexOf("or ");
-		}
-		else
-		{
-			midWordIndex = request.text.indexOf("er ");
-		}
-//-----------------------
-		if (midWordIndex== -1) //If the word is at the end of the string
-		{
-			endOfWordIndex = request.text.length;
-		}
-		else //If the word is in the middle or start of the string
-		{
-			endOfWordIndex = midWordIndex+2;
-		}
-//----------------------
-		if (request.text.lastIndexOf(" ", midWordIndex) == -1) //If the word is at the start of the string
-		{
-			startOfWordIndex = 0;
-		}
-		else //If the word is at the end or middle of the string
-		{
-			startOfWordIndex = request.text.lastIndexOf(" ", midWordIndex);
-		}
+		    if (botRegexE.test(request.text)
+			{
+			var substring = request.text.match(/\b\S{4,}er\b/);
+			}
+	    else
+	    {
+		    var substring = request.text.match(/\b\S{4,}or\b/);
+	    }
 		var wordLength = endOfWordIndex-startOfWordIndex;
 		var substring = request.text.substr(startOfWordIndex,wordLength);
 		this.res.writeHead(200);
