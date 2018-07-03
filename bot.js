@@ -20,8 +20,6 @@ var startOfWordIndex, midWordIndex, endOfWordIndex
 	    {
 	        var substring = request.text.match(botRegexO);
 	    }
-	    var wordLength = endOfWordIndex-startOfWordIndex;
-	    var substring = request.text.substr(startOfWordIndex,wordLength);
 	    this.res.writeHead(200);
 	    postMessage(substring);
 	    this.res.end();
