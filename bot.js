@@ -7,18 +7,18 @@ function respond() {
   var request = JSON.parse(this.req.chunks[0]);
   var botRegexE = /\b\S{4,}er\b/;
   var botRegexO = /\b\S{4,}or\b/;
-var startOfWordIndex, midWordIndex, endOfWordIndex
+	var substring
     if (botRegexO.test(request.text) || botRegexE.test(request.text))
     {
 	if (request.name != "W U O | | O N")
 	{
 	    if (botRegexE.test(request.text))
 	    {
-	        var substring = request.text.match(botRegexE);
+	        substring = request.text.match(/\b\S{4,}er\b/);
 	    }
 	    else
 	    {
-	        var substring = request.text.match(botRegexO);
+	        substring = request.text.match(/\b\S{4,}or\b/);
 	    }
 	    this.res.writeHead(200);
 	    postMessage(substring);
