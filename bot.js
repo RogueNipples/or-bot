@@ -25,7 +25,6 @@ var startOfWordIndex, midWordIndex, endOfWordIndex
 		this.res.writeHead(200);
     		postMessage(substring);
     		this.res.end();
-	    }
     }
 }
 
