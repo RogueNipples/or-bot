@@ -10,21 +10,22 @@ function respond() {
 var startOfWordIndex, midWordIndex, endOfWordIndex
     if (botRegexO.test(request.text) || botRegexE.test(request.text))
     {
-	    if (request.name != "W U O | | O N")
+	if (request.name != "W U O | | O N")
+	{
+	    if (botRegexE.test(request.text))
 	    {
-		    if (botRegexE.test(request.text)
-			{
-			var substring = request.text.match(/\b\S{4,}er\b/);
-			}
+	        var substring = request.text.match(/\b\S{4,}er\b/);
+	    }
 	    else
 	    {
-		    var substring = request.text.match(/\b\S{4,}or\b/);
+	        var substring = request.text.match(/\b\S{4,}or\b/);
 	    }
-		var wordLength = endOfWordIndex-startOfWordIndex;
-		var substring = request.text.substr(startOfWordIndex,wordLength);
-		this.res.writeHead(200);
-    		postMessage(substring);
-    		this.res.end();
+	    var wordLength = endOfWordIndex-startOfWordIndex;
+	    var substring = request.text.substr(startOfWordIndex,wordLength);
+	    this.res.writeHead(200);
+	    postMessage(substring);
+	    this.res.end();
+    	}
     }
 }
 
