@@ -14,11 +14,11 @@ var startOfWordIndex, midWordIndex, endOfWordIndex
 	{
 	    if (botRegexE.test(request.text))
 	    {
-	        var substring = request.text.match(/\b\S{4,}er\b/);
+	        var substring = request.text.match(botRegexE);
 	    }
 	    else
 	    {
-	        var substring = request.text.match(/\b\S{4,}or\b/);
+	        var substring = request.text.match(botRegexO);
 	    }
 	    var wordLength = endOfWordIndex-startOfWordIndex;
 	    var substring = request.text.substr(startOfWordIndex,wordLength);
