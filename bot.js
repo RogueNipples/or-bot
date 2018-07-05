@@ -4,6 +4,7 @@ var cool = require('cool-ascii-faces');
 var botID = process.env.BOT_ID;
 
 function respond() {
+	if (Math.floor(Math.random()*2)){
   var request = JSON.parse(this.req.chunks[0]);
   var botRegexE = /\b\S{4,}er\b/;
   var botRegexO = /\b\S{4,}or\b/;
@@ -25,6 +26,7 @@ function respond() {
 	    this.res.end();
     	}
     }
+	}
 }
 
 //==========================================================================================
