@@ -8,7 +8,9 @@ function respond() {
   var request = JSON.parse(this.req.chunks[0]);
   var botRegexE = /\b\S{4,}er\b/;
   var botRegexO = /\b\S{4,}or\b/;
+  var botRegexBus = /\bbusing\b/;
 	var substring;
+		var botResponse, botResponse2;
     if (botRegexO.test(request.text) || botRegexE.test(request.text))
     {
 	if (request.name != "W U O | | O N")
@@ -21,20 +23,28 @@ function respond() {
 	    {
 	        substring = request.text.match(/\b\S{4,}or\b/);
 	    }
+		botResponse = substring[0].concat("? I barely know her!");
 	    this.res.writeHead(200);
-	    postMessage(substring);
+	    postMessage(botResponse);
 	    this.res.end();
     	}
     }
+	if (botRegexBus.test(request.text))
+	{
+	    botResponse2 = "bussing*"
+	    this.res.writeHead(200);
+	    postMessage(botResponse2);
+	    this.res.end();
+	}
 	}
 }
 
 //==========================================================================================
 
-function postMessage(substring) {
+function postMessage(string) {
   var botResponse, options, body, botReq;
 	
-        botResponse = substring[0].concat("? I barely know her!");
+        botResponse = string;
 
 
   options = {
